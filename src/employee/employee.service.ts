@@ -37,4 +37,9 @@ export class EmployeeService {
     }
     return employees;
   }
+
+  getEmployeeById(id: string): Employee {
+    const employees = this.getAllEmployee();
+    return employees.find((employee) => employee.id === id);
+  }
 }
