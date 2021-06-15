@@ -1,9 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { v1 as uuid } from 'uuid';
-import { Employee, EmployeeStatus } from './employee.model';
+import { Employee } from '../schema/employee.schems';
 import { EmployeeSearchDto } from './dto/employeeSearch.dto';
 import { EmployeeUpdateDto } from './dto/employeeUpdate.dto';
 import { EmployeeCreateDto } from './dto/employeeCreate.dto';
+import { EmployeeStatus } from './employee.enum';
 
 @Injectable()
 export class EmployeeService {

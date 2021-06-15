@@ -1,11 +1,3 @@
-export interface Employee {
-  id: string;
-  firstName: string;
-  lastName: string;
-  tier: EmployeeTier;
-  status: EmployeeStatus;
-}
-
 export enum EmployeeTier {
   TIER_ONE = 'TIER_ONE',
   IER_TWO = 'TIER_TWO',

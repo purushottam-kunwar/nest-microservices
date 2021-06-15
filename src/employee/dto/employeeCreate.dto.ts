@@ -1,5 +1,5 @@
 import { IsNotEmpty } from 'class-validator';
-import { EmployeeStatus, EmployeeTier } from '../employee.model';
+import { EmployeeStatus, EmployeeTier } from '../employee.enum';
 
 export class EmployeeCreateDto {
   id: string;
