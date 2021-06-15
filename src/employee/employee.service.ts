@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { v1 as uuid } from 'uuid';
-import { Employee, EmployeeTier } from './employee.model';
+import { Employee, EmployeeStatus, EmployeeTier } from './employee.model';
 
 @Injectable()
 export class EmployeeService {
@@ -16,6 +16,7 @@ export class EmployeeService {
       firstName,
       lastName,
       tier,
+      status: EmployeeStatus.ACTIVE,
     };
     this.employees.push(employee);
     return employee;

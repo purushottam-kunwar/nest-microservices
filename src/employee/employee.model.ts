@@ -2,12 +2,19 @@ export interface Employee {
   firstName: string;
   lastName: string;
   tier: EmployeeTier;
+  status: EmployeeStatus;
 }
 
 export enum EmployeeTier {
-  TIER_0 = 0,
-  TIER_1 = 1,
-  TIER_2 = 2,
-  TIER_3 = 3,
-  TIER_4 = 4,
+  TIER_0 = 'TIER_0',
+  TIER_1 = 'TIER_1',
+  TIER_2 = 'TIER_2',
+  TIER_3 = 'TIER_3',
+  TIER_4 = 'TIER_4',
+}
+
+export enum EmployeeStatus {
+  ACTIVE = 'ACTIVE',
+  SUSOEND = 'SUSOEND',
+  RESIGNED = 'RESIGNED',
 }
