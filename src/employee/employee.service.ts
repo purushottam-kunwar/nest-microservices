@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { v1 as uuid } from 'uuid';
 import { Employee, EmployeeStatus, EmployeeTier } from './employee.model';
 import { EmployeeSearchDto } from './dto/employeeSearch.dto';
+import { EmployeeUpdateDto } from './dto/employeeUpdate.dto';
 
 @Injectable()
 export class EmployeeService {
@@ -41,5 +42,18 @@ export class EmployeeService {
   getEmployeeById(id: string): Employee {
     const employees = this.getAllEmployee();
     return employees.find((employee) => employee.id === id);
+  }
+
+  employeeUpdate(employeeUpdateDto: EmployeeUpdateDto): Employee {
+    const { id, name } = employeeUpdateDto;
+    const employee = this.getEmployeeById(id);
+    employee.firstName = name;
+    return employee;
+  }
+
+  deleteEmployee(id: string): boolean {
+    const employees = this.getAllEmployee();
+    this.employees.filter((employeee) => employeee.id != id);
+    return employees.length != this.employees.length;
   }
 }
