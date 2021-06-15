@@ -1,4 +1,4 @@
-export interface EmployeeUpdateDto {
+export class EmployeeUpdateDto {
   id: string;
   name: string;
 }

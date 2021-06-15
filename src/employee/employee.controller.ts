@@ -8,11 +8,14 @@ import {
   Param,
   Post,
   Put,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { EmployeeService } from './employee.service';
 import { EmployeeSearchDto } from './dto/employeeSearch.dto';
 import { EmployeeUpdateDto } from './dto/employeeUpdate.dto';
 import { EmployeeCreateDto } from './dto/employeeCreate.dto';
+import { EmployeeTierValidationPipe } from 'src/validation-handle/employee-tier-validation.pipe';
 
 @Controller('employee')
 export class EmployeeController {
@@ -28,12 +31,14 @@ export class EmployeeController {
   }
 
   @Post()
+  @UsePipes(ValidationPipe)
+  @UsePipes(new EmployeeTierValidationPipe())
   createEmployee(@Body() employeeCreateDto: EmployeeCreateDto) {
     return this.employeeService.createEmployee(employeeCreateDto);
   }
 
   @Get('/:id')
-  getEmployeeById(@Param() id: string) {
+  getEmployeeById(@Param('id') id: string) {
     return this.employeeService.getEmployeeById(id);
   }
 

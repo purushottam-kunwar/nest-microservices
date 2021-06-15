@@ -7,15 +7,15 @@ export interface Employee {
 }
 
 export enum EmployeeTier {
-  TIER_0 = 'TIER_0',
-  TIER_1 = 'TIER_1',
-  TIER_2 = 'TIER_2',
-  TIER_3 = 'TIER_3',
-  TIER_4 = 'TIER_4',
+  TIER_ONE = 'TIER_ONE',
+  IER_TWO = 'TIER_TWO',
+  TIER_THREE = 'TIER_THREE',
+  TIER_FOUR = 'TIER_FOUR',
+  TIER_FIVE = 'TIER_FIVE',
 }
 
 export enum EmployeeStatus {
   ACTIVE = 'ACTIVE',
-  SUSOEND = 'SUSOEND',
+  SUSPEND = 'SUSPEND',
   RESIGNED = 'RESIGNED',
 }

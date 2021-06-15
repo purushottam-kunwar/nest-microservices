@@ -1,6 +1,6 @@
 import { EmployeeStatus } from '../employee.model';
 
-export interface EmployeeSearchDto {
+export class EmployeeSearchDto {
   status: EmployeeStatus;
   name: string;
 }
