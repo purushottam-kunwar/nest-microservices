@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { v1 as uuid } from 'uuid';
-import { Employee, EmployeeStatus, EmployeeTier } from './employee.model';
+import { Employee, EmployeeStatus } from './employee.model';
 import { EmployeeSearchDto } from './dto/employeeSearch.dto';
 import { EmployeeUpdateDto } from './dto/employeeUpdate.dto';
+import { EmployeeCreateDto } from './dto/employeeCreate.dto';
 
 @Injectable()
 export class EmployeeService {
@@ -12,7 +13,8 @@ export class EmployeeService {
     return this.employees;
   }
 
-  createEmployee(firstName: string, lastName: string, tier: EmployeeTier) {
+  createEmployee(employeeCreateDto: EmployeeCreateDto) {
+    const { firstName, lastName, tier } = employeeCreateDto;
     const employee = {
       id: uuid(),
       firstName,

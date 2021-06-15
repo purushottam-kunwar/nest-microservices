@@ -9,10 +9,10 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { EmployeeTier } from './employee.model';
 import { EmployeeService } from './employee.service';
 import { EmployeeSearchDto } from './dto/employeeSearch.dto';
 import { EmployeeUpdateDto } from './dto/employeeUpdate.dto';
+import { EmployeeCreateDto } from './dto/employeeCreate.dto';
 
 @Controller('employee')
 export class EmployeeController {
@@ -28,12 +28,8 @@ export class EmployeeController {
   }
 
   @Post()
-  createEmployee(
-    @Body('firstName') firstName: string,
-    @Body('lastName') lastName: string,
-    @Body('tier') tier: EmployeeTier,
-  ) {
-    return this.employeeService.createEmployee(firstName, lastName, tier);
+  createEmployee(@Body() employeeCreateDto: EmployeeCreateDto) {
+    return this.employeeService.createEmployee(employeeCreateDto);
   }
 
   @Get('/:id')
